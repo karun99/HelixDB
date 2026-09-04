@@ -1,0 +1,131 @@
+{
+  "$comment": "HelixDB institutional research scoring configuration (SRS sections 17-26). Configurable, not a universal academic standard.",
+  "version": 1,
+  "baseScoreModel": {
+    "journal": 30,
+    "conference": 15,
+    "patent": 50,
+    "funded_project": 40,
+    "award": 10,
+    "keynote": 5
+  },
+  "ageDecay": {
+    "enabled": true,
+    "factor": 0.5,
+    "note": "Adjusted Score = Base Score - (Age x Decay Factor)"
+  },
+  "principalShare": 0.7,
+  "contributionRoles": {
+    "principal_investigator": { "share": 0.7, "label": "Principal Investigator" },
+    "co_investigator": { "share": 0.5, "label": "Co-Investigator" },
+    "principal_author": { "share": 0.7, "label": "Principal Author" },
+    "co_author": { "share": 0.3, "label": "Co-Author" },
+    "supervisor": { "share": 0.7, "label": "Supervisor" },
+    "co_supervisor": { "share": 0.5, "label": "Co-Supervisor" },
+    "editor": { "share": 0.7, "label": "Editor" },
+    "co_editor": { "share": 0.5, "label": "Co-Editor" }
+  },
+  "categories": {
+    "journal": {
+      "label": "Research Papers (Journals)",
+      "tiers": [
+        { "key": "ugc", "label": "Non-refereed / UGC-listed", "base": 8, "min": 0, "max": null },
+        { "key": "refereed_no_if", "label": "Refereed, no IF", "base": 13, "min": 0, "max": null },
+        { "key": "if_lt_1", "label": "IF < 1", "base": 18, "min": 0, "max": 1 },
+        { "key": "if_1_2", "label": "IF 1-2", "base": 23, "min": 1, "max": 2 },
+        { "key": "if_2_5", "label": "IF 2-5", "base": 28, "min": 2, "max": 5 },
+        { "key": "if_5_10", "label": "IF 5-10", "base": 33, "min": 5, "max": 10 },
+        { "key": "if_gt_10", "label": "IF > 10", "base": 38, "min": 10, "max": null }
+      ],
+      "default": 8
+    },
+    "conference": {
+      "label": "Conference Paper",
+      "tiers": [{ "key": "default", "label": "Conference paper", "base": 15 }],
+      "default": 15
+    },
+    "book": {
+      "label": "Books & Chapters",
+      "tiers": [
+        { "key": "authored_intl", "label": "International authored book", "base": 12 },
+        { "key": "authored_national", "label": "National authored book", "base": 10 },
+        { "key": "chapter", "label": "Book chapter", "base": 5 },
+        { "key": "editor_intl", "label": "International book editor", "base": 10 },
+        { "key": "editor_national", "label": "National book editor", "base": 8 },
+        { "key": "translation_chapter", "label": "Translation - chapter/paper", "base": 3 },
+        { "key": "translation_book", "label": "Translation - complete book", "base": 8 }
+      ],
+      "default": 5
+    },
+    "pedagogy": {
+      "label": "Pedagogy & MOOCs",
+      "tiers": [
+        { "key": "course", "label": "Innovative course/curriculum", "base": 5 },
+        { "key": "mooc_4", "label": "MOOC - 4 credits", "base": 20 },
+        { "key": "mooc_3", "label": "MOOC - 3 credits", "base": 15 },
+        { "key": "mooc_2", "label": "MOOC - 2 credits", "base": 10 },
+        { "key": "mooc_module", "label": "MOOC module/lecture", "base": 5 },
+        { "key": "coordinator_4", "label": "Course coordinator - 4 credits", "base": 8 },
+        { "key": "coordinator_3", "label": "Course coordinator - 3 credits", "base": 6 },
+        { "key": "ebook", "label": "Complete e-content/e-book", "base": 12 },
+        { "key": "emodule", "label": "E-content module", "base": 5 }
+      ],
+      "default": 5
+    },
+    "guidance": {
+      "label": "Research Guidance",
+      "tiers": [
+        { "key": "phd_awarded", "label": "Ph.D. awarded", "base": 10 },
+        { "key": "phd_submitted", "label": "Ph.D. thesis submitted", "base": 5 },
+        { "key": "dissertation", "label": "M.Phil./PG dissertation", "base": 2 }
+      ],
+      "default": 2
+    },
+    "project": {
+      "label": "Projects & Consultancy",
+      "tiers": [
+        { "key": "completed_high", "label": "Completed > 10 lakh", "base": 10, "completed": true, "min_amount": 1000000 },
+        { "key": "completed_low", "label": "Completed < 10 lakh", "base": 5, "completed": true, "min_amount": null },
+        { "key": "ongoing_high", "label": "Ongoing > 10 lakh", "base": 5, "completed": false, "min_amount": 1000000 },
+        { "key": "ongoing_low", "label": "Ongoing < 10 lakh", "base": 2, "completed": false, "min_amount": null }
+      ],
+      "default": 5,
+      "amount_threshold": 1000000
+    },
+    "patent": {
+      "label": "Patents",
+      "tiers": [
+        { "key": "international", "label": "International patent", "base": 10 },
+        { "key": "national", "label": "National patent", "base": 7 }
+      ],
+      "default": 7
+    },
+    "policy": {
+      "label": "Policy Documents",
+      "tiers": [
+        { "key": "international", "label": "International policy", "base": 10 },
+        { "key": "national", "label": "National policy", "base": 7 },
+        { "key": "state", "label": "State policy", "base": 4 }
+      ],
+      "default": 4
+    },
+    "award": {
+      "label": "Awards",
+      "tiers": [
+        { "key": "international", "label": "International award", "base": 7 },
+        { "key": "national", "label": "National award", "base": 5 }
+      ],
+      "default": 5
+    },
+    "lecture": {
+      "label": "Invited Lectures",
+      "tiers": [
+        { "key": "intl_abroad", "label": "International - abroad", "base": 7 },
+        { "key": "intl_within", "label": "International - within country", "base": 5 },
+        { "key": "national", "label": "National", "base": 3 },
+        { "key": "state_university", "label": "State / University", "base": 2 }
+      ],
+      "default": 2
+    }
+  }
+}
