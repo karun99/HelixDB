@@ -4,14 +4,11 @@ Covers organoid/MEA spike simulation, closed-loop maze control, adversarial
 neural-security stress testing, and the integrated readiness gate.
 """
 
-import os
-import sys
 import unittest
 
-# Add backend/ to path so `services.neurobot` is importable from repo root
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from services.neurobot import (
+# `pythonpath = ["."]` in pyproject.toml puts the repo root on sys.path, so
+# the service is imported through its real package path.
+from backend.services.neurobot import (
     SpikeTensor,
     make_spike_tensor,
     ControlLoop,
