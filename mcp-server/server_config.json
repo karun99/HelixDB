@@ -1,0 +1,158 @@
+{
+  "app": {
+    "name": "HelixDB",
+    "version": "unknown",
+    "description": "A research & learning companion for students and researchers - learn every subject in the approach that suits you, built with care and compassion for every white-hearted learner."
+  },
+  "stack": "python",
+  "routes": [
+    {
+      "method": "get",
+      "path": "/api/health"
+    },
+    {
+      "method": "get",
+      "path": "/{full_path:path}"
+    },
+    {
+      "method": "get",
+      "path": "/"
+    },
+    {
+      "method": "post",
+      "path": "/login"
+    },
+    {
+      "method": "get",
+      "path": "/me"
+    },
+    {
+      "method": "put",
+      "path": "/me"
+    },
+    {
+      "method": "put",
+      "path": "/{event_id}"
+    },
+    {
+      "method": "delete",
+      "path": "/{event_id}"
+    },
+    {
+      "method": "post",
+      "path": "/preview"
+    },
+    {
+      "method": "post",
+      "path": "/check-duplicates"
+    },
+    {
+      "method": "post",
+      "path": "/extract"
+    },
+    {
+      "method": "post",
+      "path": "/create"
+    },
+    {
+      "method": "get",
+      "path": "/reports/institutional"
+    },
+    {
+      "method": "get",
+      "path": "/reports/department/{department}"
+    },
+    {
+      "method": "get",
+      "path": "/reports/researcher/{staff_id}"
+    },
+    {
+      "method": "get",
+      "path": "/analytics/overview"
+    },
+    {
+      "method": "get",
+      "path": "/analytics/topics"
+    },
+    {
+      "method": "get",
+      "path": "/aggregate/{key}"
+    },
+    {
+      "method": "get",
+      "path": "/{project_id}"
+    },
+    {
+      "method": "put",
+      "path": "/{project_id}"
+    },
+    {
+      "method": "delete",
+      "path": "/{project_id}"
+    },
+    {
+      "method": "post",
+      "path": "/{project_id}/verify"
+    },
+    {
+      "method": "post",
+      "path": "/{project_id}/like"
+    },
+    {
+      "method": "delete",
+      "path": "/{project_id}/like"
+    },
+    {
+      "method": "post",
+      "path": "/{project_id}/comments"
+    },
+    {
+      "method": "get",
+      "path": "/workload/{staff_id}"
+    },
+    {
+      "method": "put",
+      "path": "/workload/{staff_id}"
+    },
+    {
+      "method": "put",
+      "path": "/college"
+    },
+    {
+      "method": "put",
+      "path": "/database"
+    },
+    {
+      "method": "put",
+      "path": "/backup"
+    },
+    {
+      "method": "get",
+      "path": "/scoring"
+    },
+    {
+      "method": "put",
+      "path": "/scoring"
+    },
+    {
+      "method": "get",
+      "path": "/audit"
+    },
+    {
+      "method": "put",
+      "path": "/{staff_id}"
+    },
+    {
+      "method": "delete",
+      "path": "/{staff_id}"
+    }
+  ],
+  "pages": [],
+  "base_url": "http://localhost:8000",
+  "module": "backend",
+  "scripts": {},
+  "cli_entry": null,
+  "server": "mcp-server/mcp_server.py",
+  "runner": "python",
+  "runner_cmd": "python3"
+}
