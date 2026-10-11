@@ -73,3 +73,15 @@ uvicorn backend.main:app --reload
 No expertise, no money, and no shortcut needed to care. HelixDB is built to be **simple, forgiving, and open** — the same way one ordinary man was raised by one extraordinary mother.
 
 *For every white heart that keeps trying — this one is for you.*
+
+## MCP Server
+
+This repository ships a dependency-free [Model Context Protocol](https://modelcontextprotocol.io)
+stdio server so assistants, agents and [glama.ai](https://glama.ai) can inspect the project.
+
+```bash
+python3 mcp_server.py
+```
+
+Tools: `repo_info`, `list_files`, `read_file`, `search`, `health`. Standard library only — no
+installation or dependencies required. Listing metadata is declared in [`glama.json`](glama.json).
